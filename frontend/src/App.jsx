@@ -9,8 +9,11 @@ import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import Signup from "./pages/Signup";
 import { UseAuthStore } from "./store/userAuthStore";
+import { useThemeStore } from "./store/useThemeStore";
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth } = UseAuthStore();
+  const { theme } = useThemeStore();
+
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
@@ -22,7 +25,7 @@ const App = () => {
     );
   }
   return (
-    <div>
+    <div data-theme={theme}>
       <Navbar />
       <Routes>
         <Route
