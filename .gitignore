@@ -1,7 +1,6 @@
 #  add all node modules
 node_modules/
 #  add environment variables file
-.env
 #  add logs
 logs
 *.log
@@ -28,3 +27,4 @@ Thumbs.db
 
 #  add lock files
 package-lock.json
+config.bat
