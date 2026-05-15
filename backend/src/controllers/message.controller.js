@@ -33,6 +33,28 @@ export const getMessages = async (req, res) => {
   }
 };
 
+export const deleteChat = async (req, res) => {
+  try {
+    const { id: userToChatID } = req.params;
+    const myId = req.user._id;
+
+    const result = await Message.deleteMany({
+      $or: [
+        { senderId: myId, receiverId: userToChatID },
+        { senderId: userToChatID, receiverId: myId },
+      ],
+    });
+
+    res.status(200).json({
+      message: "Chat deleted successfully",
+      deletedCount: result.deletedCount,
+    });
+  } catch (error) {
+    console.log("Error in deleteChat controller:", error.message);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
 export const sendMessage = async (req, res) => {
   try {
     const { text, image } = req.body;

@@ -69,4 +69,23 @@ export const useChatStore = create((set, get) => ({
   },
 
   setSelectedUser: (selectedUser) => set({ selectedUser }),
+
+  deleteChat: async (userId) => {
+    const { selectedUser, users } = get();
+    try {
+      await axiosInstance.delete(`/messages/${userId}`);
+
+      // Clear messages and deselect if this chat is currently open
+      if (selectedUser?._id === userId) {
+        set({ messages: [], selectedUser: null });
+      }
+
+      // Remove user from sidebar list
+      set({ users: users.filter((u) => u._id !== userId) });
+
+      toast.success("Chat deleted");
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Failed to delete chat");
+    }
+  },
 }));
