@@ -1,20 +1,20 @@
 # MERN चॅट प्रोजेक्ट (MERN-chat)
 
-## वर्णन
+## प्रकल्पाचे वर्णन
 
 हे एक **MERN स्टॅक** (MongoDB, Express, React, Node.js) वर आधारित चॅट अॅप्लिकेशन आहे।  
-या प्रोजेक्टमध्ये रिअल-टाइम चॅटिंग, यूज़र ऑथेंटिकेशन आणि एक आधुनिक UI समाविष्ट आहे।
+या प्रोजेक्टमध्ये रिअल-टाइम चॅटिंग, वापरकर्ता प्रमाणीकरण (Authentication) आणि आधुनिक UI समाविष्ट आहे.
 
 ---
 
-## प्रोजेक्टची रचना
+## प्रकल्पाची रचना
 
 ```
 .
-├── frontend-chat/   # React फ्रंटएंड (Vite + Chakra UI + Tailwind CSS)
-├── backend/         # Node.js + Express बॅकएंड
-├── package.json     # प्रोजेक्टच्या अवलंबनता
-└── README.md        # हे दस्तऐवज
+├── frontend/       # React फ्रंटएंड
+├── backend/        # Node.js + Express बॅकएंड
+├── package.json    # प्रकल्पाच्या अवलंबित्वा (dependencies)
+└── README.md       # हे दस्तऐवज
 ```
 
 ---
@@ -22,32 +22,25 @@
 ## आवश्यकता
 
 - [Node.js](https://nodejs.org/) (आवृत्ती 18 किंवा त्यावरील)
-- [MongoDB](https://www.mongodb.com/) (लोकल किंवा Atlas)
+- [MongoDB](https://www.mongodb.com/) (स्थानिक किंवा Atlas)
 - npm किंवा yarn
 
 ---
 
-## इन्स्टॉलेशन
+## स्थापना आणि सुरुवात
 
 1. रिपो क्लोन करा:
    ```bash
-   git clone https://github.com/krishna2700/fullstack-chat-app.git
-   cd fullstack-chat-app
+   git clone https://github.com/krishna2700/agent-trial.git
+   cd agent-trial
    ```
 
-2. बॅकएंडच्या अवलंबनता इन्स्टॉल करा:
+2. अवलंबित्वे स्थापित करा:
    ```bash
-   cd backend
    npm install
    ```
 
-3. फ्रंटएंडच्या अवलंबनता इन्स्टॉल करा:
-   ```bash
-   cd ../frontend-chat
-   npm install
-   ```
-
-4. बॅकएंड फोल्डरमध्ये `.env` फाइल तयार करा आणि खालील माहिती भरा:
+3. `.env` फाईल तयार करा आणि MongoDB URI टाका:
    ```
    MONGO_URI=your_mongodb_connection_string
    JWT_SECRET=your_secret_key
@@ -68,8 +61,8 @@ npm start
 ### फ्रंटएंड चालवा
 
 ```bash
-cd frontend-chat
-npm run dev
+cd frontend
+npm start
 ```
 
 ---
@@ -77,51 +70,59 @@ npm run dev
 ## मुख्य वैशिष्ट्ये
 
 - रिअल-टाइम चॅट (Socket.io)
-- यूज़र नोंदणी आणि लॉगिन (JWT ऑथेंटिकेशन)
-- एक-ते-एक आणि ग्रुप चॅट
-- आधुनिक आणि रेस्पॉन्सिव UI (Chakra UI + Tailwind CSS)
-- सुरक्षित पासवर्ड साठवणूक (bcryptjs)
+- वापरकर्ता नोंदणी आणि लॉगिन (JWT प्रमाणीकरण)
+- एक-ते-एक आणि गट चॅट
+- आधुनिक आणि प्रतिसादात्मक (Responsive) UI
+- चॅट हटवण्याचे (Delete) बटण
 
 ---
 
-## तंत्रज्ञान
+## तंत्रज्ञान स्टॅक
 
-| भाग         | तंत्रज्ञान                                      |
-|-------------|------------------------------------------------|
-| फ्रंटएंड    | React 18, Vite, Chakra UI, Tailwind CSS        |
-| बॅकएंड      | Node.js, Express.js                            |
-| डेटाबेस     | MongoDB, Mongoose                              |
-| रिअल-टाइम  | Socket.io                                      |
-| ऑथ          | JWT (jsonwebtoken), bcryptjs                   |
-| HTTP क्लाइंट | Axios                                         |
+| विभाग       | तंत्रज्ञान                              |
+|------------|----------------------------------------|
+| फ्रंटएंड    | React.js, Tailwind CSS, Socket.io-client |
+| बॅकएंड     | Node.js, Express.js, Socket.io          |
+| डेटाबेस     | MongoDB, Mongoose                       |
+| प्रमाणीकरण  | JSON Web Token (JWT), bcrypt            |
 
 ---
 
 ## API एंडपॉइंट्स
 
-| मेथड  | एंडपॉइंट              | वर्णन                        |
-|-------|----------------------|------------------------------|
-| POST  | /api/users/register  | नवीन यूज़र तयार करा           |
-| POST  | /api/users/login     | लॉगिन करा                    |
-| GET   | /api/messages        | सर्व संदेश मिळवा             |
-| POST  | /api/messages        | नवीन संदेश पाठवा             |
+| पद्धत  | एंडपॉइंट              | वर्णन                          |
+|--------|----------------------|-------------------------------|
+| POST   | /api/auth/register   | नवीन वापरकर्ता तयार करा        |
+| POST   | /api/auth/login      | लॉगिन करा                      |
+| GET    | /api/messages        | सर्व संदेश मिळवा               |
+| POST   | /api/messages        | नवीन संदेश पाठवा               |
+| DELETE | /api/messages/:id    | संदेश हटवा                     |
 
 ---
 
-## योगदान
+## योगदान कसे करावे
 
-1. रिपो **Fork** करा।
-2. नवीन **Branch** तयार करा: `git checkout -b feature/navi-suvidha`
-3. बदल **Commit** करा: `git commit -m "नवीन सुविधा जोडली"`
-4. Branch **Push** करा: `git push origin feature/navi-suvidha`
-5. एक **Pull Request** उघडा।
+1. रिपो **Fork** करा.
+2. नवीन **Branch** तयार करा:
+   ```bash
+   git checkout -b feature/नवीन-सुविधा
+   ```
+3. बदल **Commit** करा:
+   ```bash
+   git commit -m "feat: नवीन सुविधा जोडली"
+   ```
+4. Branch **Push** करा:
+   ```bash
+   git push origin feature/नवीन-सुविधा
+   ```
+5. **Pull Request** उघडा.
 
 ---
 
-## परवाना
+## परवाना (License)
 
-हा प्रोजेक्ट [MIT License](LICENSE) अंतर्गत आहे।
+हा प्रकल्प [MIT License](LICENSE) अंतर्गत आहे.
 
 ---
 
-> तयार केले: krishna2700 द्वारा
+> निर्मिती: krishna2700 द्वारे
