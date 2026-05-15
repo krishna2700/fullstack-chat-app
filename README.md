@@ -1,46 +1,53 @@
-# MERN चैट प्रोजेक्ट (MERN-chat)
+# MERN चॅट प्रोजेक्ट (MERN-chat)
 
-## विवरण
+## वर्णन
 
-यह एक **MERN स्टैक** (MongoDB, Express, React, Node.js) पर आधारित चैट एप्लिकेशन है।  
-इस प्रोजेक्ट में रियल-टाइम चैटिंग, यूज़र ऑथेंटिकेशन और एक आधुनिक UI शामिल है।
+हे एक **MERN स्टॅक** (MongoDB, Express, React, Node.js) वर आधारित चॅट अॅप्लिकेशन आहे।  
+या प्रोजेक्टमध्ये रिअल-टाइम चॅटिंग, यूज़र ऑथेंटिकेशन आणि एक आधुनिक UI समाविष्ट आहे।
 
 ---
 
-## प्रोजेक्ट की संरचना
+## प्रोजेक्टची रचना
 
 ```
 .
-├── frontend/       # React फ्रंटएंड
-├── backend/        # Node.js + Express बैकएंड
-├── package.json    # प्रोजेक्ट की निर्भरताएं
-└── README.md       # यह दस्तावेज़ फ़ाइल
+├── frontend-chat/   # React फ्रंटएंड (Vite + Chakra UI + Tailwind CSS)
+├── backend/         # Node.js + Express बॅकएंड
+├── package.json     # प्रोजेक्टच्या अवलंबनता
+└── README.md        # हे दस्तऐवज
 ```
 
 ---
 
-## आवश्यकताएं
+## आवश्यकता
 
-- [Node.js](https://nodejs.org/) (संस्करण 18 या उससे ऊपर)
-- [MongoDB](https://www.mongodb.com/) (लोकल या Atlas)
-- npm या yarn
+- [Node.js](https://nodejs.org/) (आवृत्ती 18 किंवा त्यावरील)
+- [MongoDB](https://www.mongodb.com/) (लोकल किंवा Atlas)
+- npm किंवा yarn
 
 ---
 
-## इंस्टॉलेशन
+## इन्स्टॉलेशन
 
-1. रिपो क्लोन करें:
+1. रिपो क्लोन करा:
    ```bash
-   git clone https://github.com/krishna2700/dummy-repo.git
-   cd dummy-repo
+   git clone https://github.com/krishna2700/fullstack-chat-app.git
+   cd fullstack-chat-app
    ```
 
-2. निर्भरताएं इंस्टॉल करें:
+2. बॅकएंडच्या अवलंबनता इन्स्टॉल करा:
    ```bash
+   cd backend
    npm install
    ```
 
-3.  फ़ाइल बनाएं और MongoDB URI डालें:
+3. फ्रंटएंडच्या अवलंबनता इन्स्टॉल करा:
+   ```bash
+   cd ../frontend-chat
+   npm install
+   ```
+
+4. बॅकएंड फोल्डरमध्ये `.env` फाइल तयार करा आणि खालील माहिती भरा:
    ```
    MONGO_URI=your_mongodb_connection_string
    JWT_SECRET=your_secret_key
@@ -49,63 +56,72 @@
 
 ---
 
-## उपयोग
+## वापर
 
-### बैकएंड सर्वर चलाएं
+### बॅकएंड सर्व्हर चालवा
 
 ```bash
 cd backend
 npm start
 ```
 
-### फ्रंटएंड चलाएं
+### फ्रंटएंड चालवा
 
 ```bash
-cd frontend
-npm start
+cd frontend-chat
+npm run dev
 ```
 
 ---
 
-## मुख्य विशेषताएं
+## मुख्य वैशिष्ट्ये
 
-- रियल-टाइम चैट (Socket.io)
-- यूज़र रजिस्ट्रेशन और लॉगिन (JWT ऑथेंटिकेशन)
-- एक-से-एक और ग्रुप चैट
-- आधुनिक और रेस्पॉन्सिव UI
+- रिअल-टाइम चॅट (Socket.io)
+- यूज़र नोंदणी आणि लॉगिन (JWT ऑथेंटिकेशन)
+- एक-ते-एक आणि ग्रुप चॅट
+- आधुनिक आणि रेस्पॉन्सिव UI (Chakra UI + Tailwind CSS)
+- सुरक्षित पासवर्ड साठवणूक (bcryptjs)
+
+---
+
+## तंत्रज्ञान
+
+| भाग         | तंत्रज्ञान                                      |
+|-------------|------------------------------------------------|
+| फ्रंटएंड    | React 18, Vite, Chakra UI, Tailwind CSS        |
+| बॅकएंड      | Node.js, Express.js                            |
+| डेटाबेस     | MongoDB, Mongoose                              |
+| रिअल-टाइम  | Socket.io                                      |
+| ऑथ          | JWT (jsonwebtoken), bcryptjs                   |
+| HTTP क्लाइंट | Axios                                         |
 
 ---
 
 ## API एंडपॉइंट्स
 
-| मेथड   | एंडपॉइंट              | विवरण                       |
-|--------|----------------------|-----------------------------|
-| POST   |  | नया यूज़र बनाएं             |
-| POST   |     | लॉगिन करें                  |
-| GET    |       | सभी संदेश प्राप्त करें      |
-| POST   |       | नया संदेश भेजें             |
+| मेथड  | एंडपॉइंट              | वर्णन                        |
+|-------|----------------------|------------------------------|
+| POST  | /api/users/register  | नवीन यूज़र तयार करा           |
+| POST  | /api/users/login     | लॉगिन करा                    |
+| GET   | /api/messages        | सर्व संदेश मिळवा             |
+| POST  | /api/messages        | नवीन संदेश पाठवा             |
 
 ---
 
 ## योगदान
 
-1. रिपो को **Fork** करें।
-2. एक नई **Branch** बनाएं: 
-3. अपने बदलाव **Commit** करें: On branch feature/nayi-suvidha
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	chatapp/
-
-nothing added to commit but untracked files present (use "git add" to track)
-4. Branch को **Push** करें: 
-5. एक **Pull Request** खोलें।
+1. रिपो **Fork** करा।
+2. नवीन **Branch** तयार करा: `git checkout -b feature/navi-suvidha`
+3. बदल **Commit** करा: `git commit -m "नवीन सुविधा जोडली"`
+4. Branch **Push** करा: `git push origin feature/navi-suvidha`
+5. एक **Pull Request** उघडा।
 
 ---
 
-## लाइसेंस
+## परवाना
 
-यह प्रोजेक्ट [MIT License](LICENSE) के अंतर्गत है।
+हा प्रोजेक्ट [MIT License](LICENSE) अंतर्गत आहे।
 
 ---
 
-> बनाया गया: krishna2700 द्वारा
+> तयार केले: krishna2700 द्वारा
