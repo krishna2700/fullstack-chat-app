@@ -177,6 +177,20 @@ export default function LandingPage() {
               >
                 Sign In
               </Button>
+              <Button
+                as={RouterLink}
+                to="/chat"
+                rounded="full"
+                size="lg"
+                fontWeight="normal"
+                px={8}
+                colorScheme="teal"
+                bg="teal.400"
+                _hover={{ bg: "teal.500" }}
+                leftIcon={<FiMessageSquare />}
+              >
+                Go to Dashboard
+              </Button>
             </Stack>
           </Stack>
 
