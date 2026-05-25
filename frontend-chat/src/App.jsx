@@ -24,6 +24,14 @@ function App() {
                 </PrivateRoute>
               }
             />
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <Chat />
+                </PrivateRoute>
+              }
+            />
           </Routes>
         </Router>
       </Box>

@@ -17,6 +17,7 @@ import {
 import {
   FiActivity,
   FiGlobe,
+  FiLayout,
   FiLock,
   FiLogIn,
   FiMessageSquare,
@@ -176,6 +177,20 @@ export default function LandingPage() {
                 leftIcon={<FiLogIn />}
               >
                 Sign In
+              </Button>
+              <Button
+                as={RouterLink}
+                to="/chat"
+                rounded="full"
+                size="lg"
+                fontWeight="normal"
+                px={8}
+                colorScheme="teal"
+                bg="teal.400"
+                _hover={{ bg: "teal.500" }}
+                leftIcon={<FiLayout />}
+              >
+                Go to Dashboard
               </Button>
             </Stack>
           </Stack>
